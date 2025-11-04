@@ -1,0 +1,46 @@
+﻿@page
+@model OmnibusUI.Pages.Bookhouse.IndexModel
+@{
+}
+
+<body>
+	<h1>HEYYY ITS THE BOOKHOUSE PAGE</h1>
+	
+    <p>
+        <a asp-page="Create" class="btn btn-primary">Add Book</a>
+    </p>
+
+    @if (Model.Bookhouse == null || !Model.Bookhouse.Any())
+    {
+        <p>No Patrons found.</p>
+    }
+
+    else
+    {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var b in Model.Bookhouse)
+                {
+                    <tr>
+                        <td>@b.bookID</td>
+                        <td>@b.title</td>
+                        <td>@b.copiesAvail</td>
+                        <td>
+                            <a asp-page="Edit" asp-route-id="@b.copiesAvail" class="btn btn-sm btn-warning">Edit</a>
+                            <a asp-page="Details" asp-route-id="@b.bookID" class="btn btn-sm btn-info">Details</a>
+                            <a asp-page="Delete" asp-route-id="@b.bookID" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</body>

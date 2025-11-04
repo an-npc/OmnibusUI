@@ -1,0 +1,48 @@
+﻿@page
+@model OmnibusUI.Pages.Patron.IndexModel
+@{
+    ViewData["Title"] = "Patrons";
+}
+<style>
+    table, th, td {
+      border:1px solid black
+    }
+</style>
+<h1>@ViewData["Title"]</h1>
+<p>
+    <a asp-page="Create" class="btn btn-primary">Add New Patron</a>
+</p>
+
+@if (Model.Patrons == null || !Model.Patrons.Any())
+{
+    <p>No Patrons found.</p>
+}
+
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var p in Model.Patrons)
+            {
+                <tr>
+                    <td>@p.patronID</td>
+                    <td>@p.userLast, @p.userFirst</td>
+                    <td>@p.email</td>
+                     <td> 
+                         <a asp-page="Edit" asp-route-id="@p.patronID" class="btn btn-sm btn-warning">Edit</a> 
+                         <a asp-page="Details" asp-route-id="@p.patronID" class="btn btn-sm btn-info">Details</a> 
+                         <a asp-page="Delete" asp-route-id="@p.patronID" class="btn btn-sm btn-danger">Delete</a> 
+                     </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
