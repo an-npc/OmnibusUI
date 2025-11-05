@@ -2,12 +2,16 @@
 @model OmnibusUI.Pages.Bookhouse.IndexModel
 @{
 }
-
+<style>
+    table, th, td {
+        border: 1px solid black
+    }
+</style>
 <body>
 	<h1>HEYYY ITS THE BOOKHOUSE PAGE</h1>
 	
     <p>
-        <a asp-page="Create" class="btn btn-primary">Add Book</a>
+        <a href = "/Bookhouse/Create" class="btn btn-primary"><button>Add Book</button></a>
     </p>
 
     @if (Model.Bookhouse == null || !Model.Bookhouse.Any())
@@ -21,9 +25,10 @@
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Name</th>
-                    <th>Age</th>
-                    <th></th>
+                    <th>Title</th>
+                    <th>copiesAvail</th>
+                    <th>date</th>
+                    <th>Options</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,10 +38,10 @@
                         <td>@b.bookID</td>
                         <td>@b.title</td>
                         <td>@b.copiesAvail</td>
+                        <td>@b.publicationDate</td>
                         <td>
-                            <a asp-page="Edit" asp-route-id="@b.copiesAvail" class="btn btn-sm btn-warning">Edit</a>
-                            <a asp-page="Details" asp-route-id="@b.bookID" class="btn btn-sm btn-info">Details</a>
-                            <a asp-page="Delete" asp-route-id="@b.bookID" class="btn btn-sm btn-danger">Delete</a>
+                            <a asp-page="./Update" asp-route-id="@b.bookID" class="btn btn-sm btn-warning"><button>Edit</button></a>
+                            <a asp-page="./Delete" asp-route-id="@b.bookID" class="btn btn-sm btn-danger"><button>Delete</button></a>
                         </td>
                     </tr>
                 }

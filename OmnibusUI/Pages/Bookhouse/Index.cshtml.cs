@@ -13,7 +13,7 @@ namespace OmnibusUI.Pages.Bookhouse
 
         public async Task OnGetAsync()
         {
-            Bookhouse = await _context.Bookhouse.ToListAsync();
+            Bookhouse = await _context.Bookhouse.Take(10).ToListAsync(); ;
         }
     }
 }
