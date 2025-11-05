@@ -1,0 +1,76 @@
+﻿@page
+@model OmnibusUI.Pages.Bookhouse.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Book</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Book.title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Book.title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Book.authorFirst)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Book.authorFirst)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Book.authorLast)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Book.authorLast)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Book.publicationDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Book.publicationDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Book.genre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Book.genre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Book.numPages)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Book.numPages)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Book.avgRating)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Book.avgRating)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Book.isDigital)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Book.isDigital)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Book.copiesAvail)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Book.copiesAvail)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Book.bookID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

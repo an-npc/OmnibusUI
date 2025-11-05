@@ -1,0 +1,82 @@
+﻿@page
+@model OmnibusUI.Pages.Bookhouse.CreateModel
+{
+    ViewData["Title"] = "Create";
+}
+@section Scripts {
+    {
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<body>
+    <h1>Create</h1>
+    <h4>Book Edit Page</h4>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Book.bookID" class="control-label">bookID</label>
+                <input asp-for="Book.bookID" class="form-control" />
+                <span asp-validation-for="Book.bookID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Book.title" class="control-label">title</label>
+                <input asp-for="Book.title" class="form-control" />
+                <span asp-validation-for="Book.title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Book.authorFirst" class="control-label">Authors First Name</label>
+                <input asp-for="Book.authorFirst" class="form-control" />
+                <span asp-validation-for="Book.authorFirst" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Book.authorLast" class="control-label">Authors Last Name</label>
+                <input asp-for="Book.authorLast" class="form-control" />
+                <span asp-validation-for="Book.authorLast" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Book.publicationDate" class="control-label">Publicatoin Date YYYY-MM-DD</label>
+                <input asp-for="Book.publicationDate" class="form-control" />
+                <span asp-validation-for="Book.publicationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Book.genre" class="control-label">Genre</label>
+                <input asp-for="Book.genre" class="form-control" />
+                <span asp-validation-for="Book.genre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Book.numPages" class="control-label"># of Pages</label>
+                <input asp-for="Book.numPages" class="form-control" />
+                <span asp-validation-for="Book.numPages" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Book.avgRating" class="control-label">Avg Rating</label>
+                <input asp-for="Book.avgRating" class="form-control" />
+                <span asp-validation-for="Book.avgRating" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Book.isDigital" /> @*Html.DisplayNameFor(model => model.Book.isDigital)*@
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Book.copiesAvail" class="control-label"># Copies Avail</label>
+                <input asp-for="Book.copiesAvail" class="form-control" />
+                <span asp-validation-for="Book.copiesAvail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+</body>
