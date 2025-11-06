@@ -11,11 +11,11 @@ using OmnibusUI.Models;
 
 namespace OmnibusUI.Pages.Bookhouse
 {
-    public class UpdateModel : PageModel
+    public class EditModel : PageModel
     {
         private readonly OmnibusUI.Data.AppDbContext _context;
 
-        public UpdateModel(OmnibusUI.Data.AppDbContext context)
+        public EditModel(OmnibusUI.Data.AppDbContext context)
         {
             _context = context;
         }

@@ -38,7 +38,7 @@ namespace OmnibusUI.Pages.Bookhouse
             _context.Bookhouse.Add(Book);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("/Bookhouse/Index");
+            return RedirectToPage("./Index");
         }
     }
 }
