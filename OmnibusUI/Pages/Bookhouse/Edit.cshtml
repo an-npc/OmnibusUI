@@ -1,77 +1,82 @@
 ﻿@page
-@model OmnibusUI.Pages.Bookhouse.CreateModel
+@model OmnibusUI.Pages.Bookhouse.EditModel
 
-        @{
-        ViewData["Title"] = "Create";
-        }
-        
-        <h1>Add Book</h1>
-        
-    <h4>Book</h4>
-    <hr />
-    <div class="row">
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Book</h1>
+
+<h4>Book</h4>
+<hr />
+<div class="row">
     <div class="col-md-4">
-    <form method="post">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Book.bookID" />
             <div class="form-group">
-                <label asp-for="Book.bookID" class="control-label"></label>
-                <input asp-for="Book.bookID" class="form-control" />
-                <span asp-validation-for="Book.bookID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+                
                 <label asp-for="Book.title" class="control-label"></label>
                 <input asp-for="Book.title" class="form-control" />
                 <span asp-validation-for="Book.title" class="text-danger"></span>
             </div>
             <div class="form-group">
+                
                 <label asp-for="Book.authorFirst" class="control-label"></label>
                 <input asp-for="Book.authorFirst" class="form-control" />
                 <span asp-validation-for="Book.authorFirst" class="text-danger"></span>
             </div>
             <div class="form-group">
+                
                 <label asp-for="Book.authorLast" class="control-label"></label>
                 <input asp-for="Book.authorLast" class="form-control" />
                 <span asp-validation-for="Book.authorLast" class="text-danger"></span>
             </div>
             <div class="form-group">
+                
                 <label asp-for="Book.publicationDate" class="control-label"></label>
                 <input asp-for="Book.publicationDate" class="form-control" />
                 <span asp-validation-for="Book.publicationDate" class="text-danger"></span>
             </div>
             <div class="form-group">
+                
                 <label asp-for="Book.genre" class="control-label"></label>
                 <input asp-for="Book.genre" class="form-control" />
                 <span asp-validation-for="Book.genre" class="text-danger"></span>
             </div>
             <div class="form-group">
+                
                 <label asp-for="Book.numPages" class="control-label"></label>
                 <input asp-for="Book.numPages" class="form-control" />
                 <span asp-validation-for="Book.numPages" class="text-danger"></span>
             </div>
             <div class="form-group">
+                
                 <label asp-for="Book.avgRating" class="control-label"></label>
                 <input asp-for="Book.avgRating" class="form-control" />
                 <span asp-validation-for="Book.avgRating" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
+                
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="Book.isDigital" /> @Html.DisplayNameFor(model => model.Book.isDigital)
                 </label>
             </div>
             <div class="form-group">
+                
                 <label asp-for="Book.copiesAvail" class="control-label"></label>
                 <input asp-for="Book.copiesAvail" class="form-control" />
                 <span asp-validation-for="Book.copiesAvail" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="Index">Back to List</a>
+    <a asp-page="./Index">Back to List</a>
 </div>
 
 @section Scripts {
