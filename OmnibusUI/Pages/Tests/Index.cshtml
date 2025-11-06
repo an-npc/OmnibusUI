@@ -1,0 +1,59 @@
+﻿@page
+@model OmnibusUI.Pages.Tests.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - OmnibusUI</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/OmnibusUI.styles.css" asp-append-version="true" />
+</head>
+<h1>Index</h1>
+
+<p>
+    <a href="tests/create"><button>Create New</button></a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Test[0].title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Test[0].authorFirst)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Test[0].authorLast)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Test) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.authorFirst)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.authorLast)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.bookID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.bookID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.bookID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

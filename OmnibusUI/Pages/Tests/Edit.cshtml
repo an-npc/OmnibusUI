@@ -1,0 +1,48 @@
+﻿@page
+@model OmnibusUI.Pages.Tests.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Test</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Test.bookID" />
+            <div class="form-group">
+                
+                <label asp-for="Test.title" class="control-label"></label>
+                <input asp-for="Test.title" class="form-control" />
+                <span asp-validation-for="Test.title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="Test.authorFirst" class="control-label"></label>
+                <input asp-for="Test.authorFirst" class="form-control" />
+                <span asp-validation-for="Test.authorFirst" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="Test.authorLast" class="control-label"></label>
+                <input asp-for="Test.authorLast" class="form-control" />
+                <span asp-validation-for="Test.authorLast" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
