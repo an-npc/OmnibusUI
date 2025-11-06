@@ -1,48 +1,60 @@
 ﻿@page
 @model OmnibusUI.Pages.Patron.IndexModel
+
 @{
-    ViewData["Title"] = "Patrons";
+    ViewData["Title"] = "Index";
 }
-<style>
-    table, th, td {
-      border:1px solid black
-    }
-</style>
-<h1>@ViewData["Title"]</h1>
+
+<h1>Index</h1>
+
 <p>
-    <a asp-page="Create" class="btn btn-primary">Add New Patron</a>
+    <a asp-page="Create">Create New</a>
 </p>
-
-@if (Model.Patrons == null || !Model.Patrons.Any())
-{
-    <p>No Patrons found.</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Patron[0].libCardNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patron[0].userFirst)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patron[0].userLast)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patron[0].email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patron[0].booksBorrowed)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Patron) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.libCardNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.userFirst)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.userLast)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.booksBorrowed)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.patronID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.patronID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.patronID">Delete</a>
+            </td>
+        </tr>
 }
-
-else
-{
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Options</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var p in Model.Patrons)
-            {
-                <tr>
-                    <td>@p.patronID</td>
-                    <td>@p.userLast, @p.userFirst</td>
-                    <td>@p.email</td>
-                     <td> 
-                         <a asp-page="Edit" asp-route-id="@p.patronID" class="btn btn-sm btn-warning">Edit</a> 
-                         <a asp-page="Details" asp-route-id="@p.patronID" class="btn btn-sm btn-info">Details</a> 
-                         <a asp-page="Delete" asp-route-id="@p.patronID" class="btn btn-sm btn-danger">Delete</a> 
-                     </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
+    </tbody>
+</table>

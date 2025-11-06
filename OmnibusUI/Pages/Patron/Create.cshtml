@@ -1,0 +1,54 @@
+﻿@page
+@model OmnibusUI.Pages.Patron.CreateModel
+
+        @{
+        ViewData["Title"] = "Create";
+        }
+        
+        <h1>Create</h1>
+        
+    <h4>Patron</h4>
+    <hr />
+    <div class="row">
+    <div class="col-md-4">
+    <form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Patron.libCardNum" class="control-label"></label>
+                <input asp-for="Patron.libCardNum" class="form-control" />
+                <span asp-validation-for="Patron.libCardNum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patron.userFirst" class="control-label"></label>
+                <input asp-for="Patron.userFirst" class="form-control" />
+                <span asp-validation-for="Patron.userFirst" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patron.userLast" class="control-label"></label>
+                <input asp-for="Patron.userLast" class="form-control" />
+                <span asp-validation-for="Patron.userLast" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patron.email" class="control-label"></label>
+                <input asp-for="Patron.email" class="form-control" />
+                <span asp-validation-for="Patron.email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patron.booksBorrowed" class="control-label"></label>
+                <input asp-for="Patron.booksBorrowed" class="form-control" />
+                <span asp-validation-for="Patron.booksBorrowed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
