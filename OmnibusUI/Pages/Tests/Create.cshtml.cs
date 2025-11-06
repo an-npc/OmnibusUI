@@ -8,13 +8,13 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using OmnibusUI.Data;
 using OmnibusUI.Models;
 
-namespace OmnibusUI.Pages.Bookhouse
+namespace OmnibusUI.Pages.Tests
 {
     public class CreateModel : PageModel
     {
-        private readonly OmnibusUI.Data.AppDbContext _context;
+        private readonly AppDbContext _context;
 
-        public CreateModel(OmnibusUI.Data.AppDbContext context)
+        public CreateModel(AppDbContext context)
         {
             _context = context;
         }
@@ -25,20 +25,22 @@ namespace OmnibusUI.Pages.Bookhouse
         }
 
         [BindProperty]
-        public Book Book { get; set; } = default!;
+        public Test Test { get; set; } = default!;
 
         // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return Page();
+            //}
+            bool value = ModelState.IsValid;
+            Console.WriteLine("Model Validity: " +  value);
 
-            _context.Bookhouse.Add(Book);
+            _context.Tests.Add(Test);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("/Bookhouse/Index");
+            return RedirectToPage("./Index");
         }
     }
 }
