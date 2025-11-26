@@ -25,16 +25,16 @@ Please use the Visual Studio IDE as we havent tested this in other IDEs such as 
 - If not go to Browse and install all three
 
 ## Update Default Connection String
-- In your sql server retrive your server name
+- In your sql server copy your server name from the SqlSever Login Page
 - In the appsettings.json file, on the third line on DefaultConnection
 - replace the server name with your local
 - "Server=CAULDRON\\SQLEXPRESS;Database=PROJ4402;Trusted_Connection=True;TrustServerCertificate=True"
 to
 - "Server=yourserver;Database=PROJ4402;Trusted_Connection=True;TrustServerCertificate=True"
 
-## Import Data .bak file to Database PROJ4402
+## Import Data .bak file
 - attached to this repo is a bak file
-- please copy the bak file and paste it in the following path: C:\Users\Public\Downloads
+- please copy the bak file and paste it in File Explorer to the following path: C:\Users\Public\Downloads
 - in sql server right click on 'Databases' right below your server name
 - select 'Restore Database'
 - for source, select 'Device'
