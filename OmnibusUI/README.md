@@ -50,4 +50,10 @@ to
 
 - If you could not find the .bak file in C:\Users\Public\Downloads
 - Resolve by checking if it was added properly in Public\Downloads
-- else, try pasting the .bak file in this path and try again C:\Program Files\Microsoft SQL Server\MSSQL16.SQLEXPRESS\MSSQL\Backup 
+- else, try pasting the .bak file in this path and try again C:\Program Files\Microsoft SQL Server\MSSQL16.SQLEXPRESS\MSSQL\Backup
+
+
+## Finishing Touches
+- Open the Omnibus solution in Visual Studio code
+- Press the green play button at the top (next to the button is 'https')
+- Agree to the certificates and it should run automatically. 
