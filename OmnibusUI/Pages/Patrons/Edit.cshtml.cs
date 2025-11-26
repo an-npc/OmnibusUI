@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using OmnibusUI.Data;
 using OmnibusUI.Models;
 
-namespace OmnibusUI.Pages.Bookhouse
+namespace OmnibusUI.Pages.Patrons
 {
     public class EditModel : PageModel
     {
@@ -21,7 +21,7 @@ namespace OmnibusUI.Pages.Bookhouse
         }
 
         [BindProperty]
-        public Book Book { get; set; } = default!;
+        public Patron Patron { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
@@ -30,12 +30,12 @@ namespace OmnibusUI.Pages.Bookhouse
                 return NotFound();
             }
 
-            var book =  await _context.Bookhouse.FirstOrDefaultAsync(m => m.isbn == id);
-            if (book == null)
+            var patron =  await _context.Patrons.FirstOrDefaultAsync(m => m.libCardNum == id);
+            if (patron == null)
             {
                 return NotFound();
             }
-            Book = book;
+            Patron = patron;
             return Page();
         }
 
@@ -48,7 +48,7 @@ namespace OmnibusUI.Pages.Bookhouse
                 return Page();
             }
 
-            _context.Attach(Book).State = EntityState.Modified;
+            _context.Attach(Patron).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace OmnibusUI.Pages.Bookhouse
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!BookExists(Book.isbn))
+                if (!PatronExists(Patron.libCardNum))
                 {
                     return NotFound();
                 }
@@ -69,9 +69,9 @@ namespace OmnibusUI.Pages.Bookhouse
             return RedirectToPage("./Index");
         }
 
-        private bool BookExists(string id)
+        private bool PatronExists(string id)
         {
-            return _context.Bookhouse.Any(e => e.isbn == id);
+            return _context.Patrons.Any(e => e.libCardNum == id);
         }
     }
 }

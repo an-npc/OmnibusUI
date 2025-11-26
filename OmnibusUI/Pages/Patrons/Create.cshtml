@@ -1,5 +1,5 @@
 ﻿@page
-@model OmnibusUI.Pages.Patron.CreateModel
+@model OmnibusUI.Pages.Patrons.CreateModel
 
         @{
         ViewData["Title"] = "Create";
@@ -34,9 +34,9 @@
                 <span asp-validation-for="Patron.email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Patron.booksBorrowed" class="control-label"></label>
-                <input asp-for="Patron.booksBorrowed" class="form-control" />
-                <span asp-validation-for="Patron.booksBorrowed" class="text-danger"></span>
+                <label asp-for="Patron.homeAddress" class="control-label"></label>
+                <input asp-for="Patron.homeAddress" class="form-control" />
+                <span asp-validation-for="Patron.homeAddress" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

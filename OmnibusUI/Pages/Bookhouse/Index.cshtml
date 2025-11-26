@@ -13,7 +13,6 @@
 <a asp-page="./Search">Looking for a Certain Book?</a>
 
 
-
 <table class="table">
     <thead>
         <tr>
@@ -21,16 +20,10 @@
                 @Html.DisplayNameFor(model => model.Book[0].title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Book[0].authorFirst)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Book[0].authorLast)
+                @Html.DisplayNameFor(model => model.Book[0].genre)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Book[0].publicationDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Book[0].genre)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Book[0].numPages)
@@ -44,6 +37,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Book[0].copiesAvail)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Book[0].authorID)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -54,16 +50,10 @@
                 @Html.DisplayFor(modelItem => item.title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.authorFirst)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.authorLast)
+                @Html.DisplayFor(modelItem => item.genre)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.publicationDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.genre)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.numPages)
@@ -78,9 +68,12 @@
                 @Html.DisplayFor(modelItem => item.copiesAvail)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.bookID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.bookID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.bookID">Delete</a>
+                @Html.DisplayFor(modelItem => item.authorID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.isbn">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.isbn">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.isbn">Delete</a>
             </td>
         </tr>
 }

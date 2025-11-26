@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using OmnibusUI.Data;
 using OmnibusUI.Models;
 
-namespace OmnibusUI.Pages.Patron
+namespace OmnibusUI.Pages.Authors
 {
     public class EditModel : PageModel
     {
@@ -21,7 +21,7 @@ namespace OmnibusUI.Pages.Patron
         }
 
         [BindProperty]
-        public OmnibusUI.Models.Patron Patron { get; set; } = default!;
+        public Author Author { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,12 +30,12 @@ namespace OmnibusUI.Pages.Patron
                 return NotFound();
             }
 
-            var patron =  await _context.Patrons.FirstOrDefaultAsync(m => m.patronID == id);
-            if (patron == null)
+            var author =  await _context.Authors.FirstOrDefaultAsync(m => m.authID == id);
+            if (author == null)
             {
                 return NotFound();
             }
-            Patron = patron;
+            Author = author;
             return Page();
         }
 
@@ -48,7 +48,7 @@ namespace OmnibusUI.Pages.Patron
                 return Page();
             }
 
-            _context.Attach(Patron).State = EntityState.Modified;
+            _context.Attach(Author).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace OmnibusUI.Pages.Patron
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!PatronExists(Patron.patronID))
+                if (!AuthorExists(Author.authID))
                 {
                     return NotFound();
                 }
@@ -69,9 +69,9 @@ namespace OmnibusUI.Pages.Patron
             return RedirectToPage("./Index");
         }
 
-        private bool PatronExists(int id)
+        private bool AuthorExists(int id)
         {
-            return _context.Patrons.Any(e => e.patronID == id);
+            return _context.Authors.Any(e => e.authID == id);
         }
     }
 }

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using OmnibusUI.Data;
 using OmnibusUI.Models;
 
-namespace OmnibusUI.Pages.Patron
+namespace OmnibusUI.Pages.Authors
 {
     public class DetailsModel : PageModel
     {
@@ -19,7 +19,7 @@ namespace OmnibusUI.Pages.Patron
             _context = context;
         }
 
-        public OmnibusUI.Models.Patron Patron { get; set; } = default!;
+        public Author Author { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,11 +28,11 @@ namespace OmnibusUI.Pages.Patron
                 return NotFound();
             }
 
-            var patron = await _context.Patrons.FirstOrDefaultAsync(m => m.patronID == id);
+            var author = await _context.Authors.FirstOrDefaultAsync(m => m.authID == id);
 
-            if (patron is not null)
+            if (author is not null)
             {
-                Patron = patron;
+                Author = author;
 
                 return Page();
             }

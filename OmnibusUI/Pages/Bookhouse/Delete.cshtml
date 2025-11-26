@@ -19,28 +19,16 @@
             @Html.DisplayFor(model => model.Book.title)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Book.authorFirst)
+            @Html.DisplayNameFor(model => model.Book.genre)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Book.authorFirst)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Book.authorLast)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Book.authorLast)
+            @Html.DisplayFor(model => model.Book.genre)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Book.publicationDate)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Book.publicationDate)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Book.genre)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Book.genre)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Book.numPages)
@@ -66,10 +54,16 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Book.copiesAvail)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Book.authorID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Book.authorID)
+        </dd>
     </dl>
     
     <form method="post">
-        <input type="hidden" asp-for="Book.bookID" />
+        <input type="hidden" asp-for="Book.isbn" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-page="./Index">Back to List</a>
     </form>

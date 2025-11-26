@@ -1,23 +1,16 @@
 ﻿@page
-@model OmnibusUI.Pages.Patron.DeleteModel
+@model OmnibusUI.Pages.Patrons.DetailsModel
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Details";
 }
 
-<h1>Delete</h1>
+<h1>Details</h1>
 
-<h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>Patron</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Patron.libCardNum)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Patron.libCardNum)
-        </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Patron.userFirst)
         </dt>
@@ -37,16 +30,14 @@
             @Html.DisplayFor(model => model.Patron.email)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Patron.booksBorrowed)
+            @Html.DisplayNameFor(model => model.Patron.homeAddress)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Patron.booksBorrowed)
+            @Html.DisplayFor(model => model.Patron.homeAddress)
         </dd>
     </dl>
-    
-    <form method="post">
-        <input type="hidden" asp-for="Patron.patronID" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index">Back to List</a>
-    </form>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Patron.libCardNum">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
 </div>

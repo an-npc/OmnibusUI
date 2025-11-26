@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using OmnibusUI.Data;
 using OmnibusUI.Models;
 
-namespace OmnibusUI.Pages.Bookhouse
+namespace OmnibusUI.Pages.Patrons
 {
     public class DeleteModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace OmnibusUI.Pages.Bookhouse
         }
 
         [BindProperty]
-        public Book Book { get; set; } = default!;
+        public Patron Patron { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
@@ -29,11 +29,11 @@ namespace OmnibusUI.Pages.Bookhouse
                 return NotFound();
             }
 
-            var book = await _context.Bookhouse.FirstOrDefaultAsync(m => m.isbn == id);
+            var patron = await _context.Patrons.FirstOrDefaultAsync(m => m.libCardNum == id);
 
-            if (book is not null)
+            if (patron is not null)
             {
-                Book = book;
+                Patron = patron;
 
                 return Page();
             }
@@ -48,11 +48,11 @@ namespace OmnibusUI.Pages.Bookhouse
                 return NotFound();
             }
 
-            var book = await _context.Bookhouse.FindAsync(id);
-            if (book != null)
+            var patron = await _context.Patrons.FindAsync(id);
+            if (patron != null)
             {
-                Book = book;
-                _context.Bookhouse.Remove(Book);
+                Patron = patron;
+                _context.Patrons.Remove(Patron);
                 await _context.SaveChangesAsync();
             }
 

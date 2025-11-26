@@ -11,5 +11,7 @@ namespace OmnibusUI.Data
         public DbSet<Patron> Patrons { get; set; }
         public DbSet<Book> Bookhouse { get; set; }
         public DbSet<Test> Tests { get; set; }
+        public DbSet<Author> Authors { get; set; }
+        public DbSet<LibraryCard> LibraryCards { get; set; }
     }
 }

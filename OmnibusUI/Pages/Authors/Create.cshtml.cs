@@ -5,16 +5,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using OmnibusUI.Data;
 using OmnibusUI.Models;
 
-namespace OmnibusUI.Pages.Patron
+namespace OmnibusUI.Pages.Authors
 {
     public class CreateModel : PageModel
     {
         private readonly OmnibusUI.Data.AppDbContext _context;
-        public IList<OmnibusUI.Models.Patron> Patrons { get; set; } = default!;
 
         public CreateModel(OmnibusUI.Data.AppDbContext context)
         {
@@ -27,19 +25,17 @@ namespace OmnibusUI.Pages.Patron
         }
 
         [BindProperty]
-        public OmnibusUI.Models.Patron Patron { get; set; } = default!;
+        public Author Author { get; set; } = default!;
 
         // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            Patrons = await _context.Patrons.ToListAsync();
-            Patron.patronID = Patrons.Count + 1;
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            _context.Patrons.Add(Patron);
+            _context.Authors.Add(Author);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
