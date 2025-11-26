@@ -12,40 +12,66 @@ namespace OmnibusUI.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Bookhouse",
+                name: "Authors",
                 columns: table => new
                 {
-                    bookID = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    title = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    authorFirst = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    authorLast = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    publicationDate = table.Column<DateOnly>(type: "date", nullable: false),
-                    genre = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    numPages = table.Column<int>(type: "int", nullable: false),
-                    avgRating = table.Column<double>(type: "float", nullable: false),
-                    isDigital = table.Column<bool>(type: "bit", nullable: false),
-                    copiesAvail = table.Column<int>(type: "int", nullable: false)
+                    authID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    firstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    lastName = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Bookhouse", x => x.bookID);
+                    table.PrimaryKey("PK_Authors", x => x.authID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Bookhouse",
+                columns: table => new
+                {
+                    isbn = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    genre = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    publicationDate = table.Column<DateOnly>(type: "date", nullable: false),
+                    numPages = table.Column<int>(type: "int", nullable: false),
+                    avgRating = table.Column<double>(type: "float", nullable: false),
+                    isDigital = table.Column<bool>(type: "bit", nullable: false),
+                    copiesAvail = table.Column<int>(type: "int", nullable: false),
+                    authorID = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Bookhouse", x => x.isbn);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "LibraryCards",
+                columns: table => new
+                {
+                    libCardNum = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    issueDate = table.Column<DateOnly>(type: "date", nullable: false),
+                    expDate = table.Column<DateOnly>(type: "date", nullable: false),
+                    fines = table.Column<double>(type: "float", nullable: false),
+                    booksBorrowed = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LibraryCards", x => x.libCardNum);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Patrons",
                 columns: table => new
                 {
-                    patronID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    libCardNum = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    libCardNum = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     userFirst = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     userLast = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    booksBorrowed = table.Column<int>(type: "int", nullable: false)
+                    homeAddress = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Patrons", x => x.patronID);
+                    table.PrimaryKey("PK_Patrons", x => x.libCardNum);
                 });
 
             migrationBuilder.CreateTable(
@@ -67,7 +93,13 @@ namespace OmnibusUI.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Authors");
+
+            migrationBuilder.DropTable(
                 name: "Bookhouse");
+
+            migrationBuilder.DropTable(
+                name: "LibraryCards");
 
             migrationBuilder.DropTable(
                 name: "Patrons");

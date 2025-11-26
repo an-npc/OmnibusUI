@@ -12,7 +12,7 @@ using OmnibusUI.Data;
 namespace OmnibusUI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251106125420_InitialCreate")]
+    [Migration("20251125234658_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -25,16 +25,33 @@ namespace OmnibusUI.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("OmnibusUI.Models.Book", b =>
+            modelBuilder.Entity("OmnibusUI.Models.Author", b =>
                 {
-                    b.Property<string>("bookID")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("authID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
 
-                    b.Property<string>("authorFirst")
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("authID"));
+
+                    b.Property<string>("firstName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("authorLast")
+                    b.Property<string>("lastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("authID");
+
+                    b.ToTable("Authors");
+                });
+
+            modelBuilder.Entity("OmnibusUI.Models.Book", b =>
+                {
+                    b.Property<string>("isbn")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("authorID")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -61,29 +78,44 @@ namespace OmnibusUI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("bookID");
+                    b.HasKey("isbn");
 
                     b.ToTable("Bookhouse");
                 });
 
-            modelBuilder.Entity("OmnibusUI.Models.Patron", b =>
+            modelBuilder.Entity("OmnibusUI.Models.LibraryCard", b =>
                 {
-                    b.Property<int>("patronID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("patronID"));
+                    b.Property<string>("libCardNum")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("booksBorrowed")
                         .HasColumnType("int");
+
+                    b.Property<DateOnly>("expDate")
+                        .HasColumnType("date");
+
+                    b.Property<double>("fines")
+                        .HasColumnType("float");
+
+                    b.Property<DateOnly>("issueDate")
+                        .HasColumnType("date");
+
+                    b.HasKey("libCardNum");
+
+                    b.ToTable("LibraryCards");
+                });
+
+            modelBuilder.Entity("OmnibusUI.Models.Patron", b =>
+                {
+                    b.Property<string>("libCardNum")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("libCardNum")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("homeAddress")
+                        .HasColumnType("int");
 
                     b.Property<string>("userFirst")
                         .IsRequired()
@@ -93,7 +125,7 @@ namespace OmnibusUI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("patronID");
+                    b.HasKey("libCardNum");
 
                     b.ToTable("Patrons");
                 });

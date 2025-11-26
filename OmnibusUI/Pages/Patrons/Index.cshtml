@@ -1,5 +1,5 @@
 ﻿@page
-@model OmnibusUI.Pages.Patron.IndexModel
+@model OmnibusUI.Pages.Patrons.IndexModel
 
 @{
     ViewData["Title"] = "Index";
@@ -14,9 +14,6 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Patron[0].libCardNum)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Patron[0].userFirst)
             </th>
             <th>
@@ -26,7 +23,7 @@
                 @Html.DisplayNameFor(model => model.Patron[0].email)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Patron[0].booksBorrowed)
+                @Html.DisplayNameFor(model => model.Patron[0].homeAddress)
             </th>
             <th></th>
         </tr>
@@ -34,9 +31,6 @@
     <tbody>
 @foreach (var item in Model.Patron) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.libCardNum)
-            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.userFirst)
             </td>
@@ -47,12 +41,12 @@
                 @Html.DisplayFor(modelItem => item.email)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.booksBorrowed)
+                @Html.DisplayFor(modelItem => item.homeAddress)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.patronID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.patronID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.patronID">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.libCardNum">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.libCardNum">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.libCardNum">Delete</a>
             </td>
         </tr>
 }

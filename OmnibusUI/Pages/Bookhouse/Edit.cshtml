@@ -5,7 +5,7 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit Book</h1>
+<h1>Edit</h1>
 
 <h4>Book</h4>
 <hr />
@@ -13,7 +13,7 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Book.bookID" />
+            <input type="hidden" asp-for="Book.isbn" />
             <div class="form-group">
                 
                 <label asp-for="Book.title" class="control-label"></label>
@@ -22,27 +22,15 @@
             </div>
             <div class="form-group">
                 
-                <label asp-for="Book.authorFirst" class="control-label"></label>
-                <input asp-for="Book.authorFirst" class="form-control" />
-                <span asp-validation-for="Book.authorFirst" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                
-                <label asp-for="Book.authorLast" class="control-label"></label>
-                <input asp-for="Book.authorLast" class="form-control" />
-                <span asp-validation-for="Book.authorLast" class="text-danger"></span>
+                <label asp-for="Book.genre" class="control-label"></label>
+                <input asp-for="Book.genre" class="form-control" />
+                <span asp-validation-for="Book.genre" class="text-danger"></span>
             </div>
             <div class="form-group">
                 
                 <label asp-for="Book.publicationDate" class="control-label"></label>
                 <input asp-for="Book.publicationDate" class="form-control" />
                 <span asp-validation-for="Book.publicationDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                
-                <label asp-for="Book.genre" class="control-label"></label>
-                <input asp-for="Book.genre" class="form-control" />
-                <span asp-validation-for="Book.genre" class="text-danger"></span>
             </div>
             <div class="form-group">
                 
@@ -67,6 +55,12 @@
                 <label asp-for="Book.copiesAvail" class="control-label"></label>
                 <input asp-for="Book.copiesAvail" class="form-control" />
                 <span asp-validation-for="Book.copiesAvail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="Book.authorID" class="control-label"></label>
+                <input asp-for="Book.authorID" class="form-control" />
+                <span asp-validation-for="Book.authorID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

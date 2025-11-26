@@ -1,5 +1,5 @@
 ﻿@page
-@model OmnibusUI.Pages.Patron.EditModel
+@model OmnibusUI.Pages.Patrons.EditModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -13,13 +13,7 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Patron.patronID" />
-            <div class="form-group">
-                
-                <label asp-for="Patron.libCardNum" class="control-label"></label>
-                <input asp-for="Patron.libCardNum" class="form-control" />
-                <span asp-validation-for="Patron.libCardNum" class="text-danger"></span>
-            </div>
+            <input type="hidden" asp-for="Patron.libCardNum" />
             <div class="form-group">
                 
                 <label asp-for="Patron.userFirst" class="control-label"></label>
@@ -40,9 +34,9 @@
             </div>
             <div class="form-group">
                 
-                <label asp-for="Patron.booksBorrowed" class="control-label"></label>
-                <input asp-for="Patron.booksBorrowed" class="form-control" />
-                <span asp-validation-for="Patron.booksBorrowed" class="text-danger"></span>
+                <label asp-for="Patron.homeAddress" class="control-label"></label>
+                <input asp-for="Patron.homeAddress" class="form-control" />
+                <span asp-validation-for="Patron.homeAddress" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
