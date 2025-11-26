@@ -1,10 +1,10 @@
 # OmnibusUI
 # Members
-AppUI + Functions: Melanie Steiner
-Test Queries: Christian Frazier
-Enterprise Description: Conner
-Relation Diagram: Abdul
-ER Diagram: unknown
+- AppUI + Functions: Melanie Steiner
+- Test Queries: Christian Frazier
+- Enterprise Description: Conner
+- Relation Diagram: Abdul
+- ER Diagram: unknown
 
 # About Our Software
 Describe a little about what the project is about here.
