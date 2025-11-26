@@ -32,5 +32,19 @@ Please use the Visual Studio IDE as we havent tested this in other IDEs such as 
 to
 - "Server=yourserver;Database=PROJ4402;Trusted_Connection=True;TrustServerCertificate=True"
 
-## Import Data to Database PROJ4402
-- create a new database called 'PROJ4402' with: create database PROJ4402
+## Import Data .bak file to Database PROJ4402
+- attached to this repo is a bak file
+- please copy the bak file and paste it in the following path: C:\Users\Public\Downloads
+- in sql server right click on 'Databases' right below your server name
+- select 'Restore Database'
+- for source, select 'Device'
+- select the '...' on the far right
+- select 'File' for backup media type
+- select 'Add' and go to the file path: C:\Users\Public\Downloads by pasting it in 'Back File Location'
+- select 'PROJ4402.bak'
+- select 'OK' --> 'OK' --> 'OK'
+
+  ### Troubleshooting Data Import
+- If Restore fails its b/c PROJ4402 already exist
+-- Resolve by querying: drop database PROJ4402
+- If 
