@@ -46,5 +46,8 @@ to
 
   ### Troubleshooting Data Import
 - If Restore fails its b/c PROJ4402 already exist
--- Resolve by querying: drop database PROJ4402
-- If 
+- Resolve by querying: drop database PROJ4402
+
+- If you could not find the .bak file in C:\Users\Public\Downloads
+- Resolve by checking if it was added properly in Public\Downloads
+- else, try pasting the .bak file in this path and try again C:\Program Files\Microsoft SQL Server\MSSQL16.SQLEXPRESS\MSSQL\Backup 
