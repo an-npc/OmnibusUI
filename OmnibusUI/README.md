@@ -12,8 +12,8 @@ Describe a little about what the project is about here.
 - Windows specifically Visual Studio
 
 # How to Run Dev and Test Environment
-## IDE Needed
--Please use the Visual Studio IDE as we havent tested this in other IDEs such as visual studio code
+## Visual Studio IDE Needed
+Please use the Visual Studio IDE as we havent tested this in other IDEs such as visual studio code
 
 ## NuGet Installed
 - Check that you have the neccessary nugets installed
@@ -34,13 +34,3 @@ to
 
 ## Import Data to Database PROJ4402
 - create a new database called 'PROJ4402' with: create database PROJ4402
-
-
-## Nugets Needed 
-
-## Commands
-Describe how the commands and process to launch the project on the main branch in such a way that anyone working on the project knows how to check the affects of any code they add.
-
-```sh
-Example terminal command syntax
-```
