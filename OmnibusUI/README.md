@@ -22,6 +22,7 @@ Please use the Visual Studio IDE as we havent tested this in other IDEs such as 
 - Microsoft.EntityFramework
 - Microsoft.EntityFramework.SqlServer
 - Microsoft.EntityFramework.Tools
+- MSTest
 - If not go to Browse and install all three
 
 ## Update Default Connection String
