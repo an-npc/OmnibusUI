@@ -13,16 +13,20 @@ Describe a little about what the project is about here.
 
 # How to Run Dev and Test Environment
 ## Visual Studio IDE Needed
-Please use the Visual Studio IDE as we havent tested this in other IDEs such as visual studio code
+- The project is named Omnibus –meaning a collection of paperbacks. This project was created with ASP.NET C# and simulates an online library repository, which keeps track of the library’s books, the authors, patrons, and distributed library cards. Melanie looked into library databases to see if we could use real data. Unfortunately, no real data could be found, so we synthesized it via Mockaroo. The schema for each entity was the following: 
+  - patrons (libCardNum, userFirst, userLast, email, address),
+  - libraryCards (libCardNum, issueDate, expDate, fines, booksBorrowed),
+  - bookhouse (ISBN, authID, title, publicationDate, genre, numPages, avgRating, isDigital, copiesAvail)
+  - authors (authorID, firstName, lastName).
 
 ## NuGet Installed
 - Check that you have the neccessary nugets installed
 - In Visual Studio go to Tool >> Nuget Package Manager >> Manage Nuget Packages for Solution
 - Ensure that you have the following installed:
-- Microsoft.EntityFramework
-- Microsoft.EntityFramework.SqlServer
-- Microsoft.EntityFramework.Tools
-- MSTest
+  - Microsoft.EntityFramework
+  - Microsoft.EntityFramework.SqlServer
+  - Microsoft.EntityFramework.Tools
+  - MSTest
 - If not go to Browse and install all three
 
 ## Update Default Connection String
