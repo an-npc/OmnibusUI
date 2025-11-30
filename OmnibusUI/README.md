@@ -7,17 +7,17 @@
 - ER Diagram: unknown
 
 # About Our Software
-Describe a little about what the project is about here.
-## Platforms Tested on
-- Windows specifically Visual Studio
-
-# How to Run Dev and Test Environment
-## Visual Studio IDE Needed
 - The project is named Omnibus –meaning a collection of paperbacks. This project was created with ASP.NET C# and simulates an online library repository, which keeps track of the library’s books, the authors, patrons, and distributed library cards. Melanie looked into library databases to see if we could use real data. Unfortunately, no real data could be found, so we synthesized it via Mockaroo. The schema for each entity was the following: 
   - patrons (libCardNum, userFirst, userLast, email, address),
   - libraryCards (libCardNum, issueDate, expDate, fines, booksBorrowed),
   - bookhouse (ISBN, authID, title, publicationDate, genre, numPages, avgRating, isDigital, copiesAvail)
   - authors (authorID, firstName, lastName).
+## Platforms Tested on
+- Windows specifically Visual Studio
+
+# How to Run Dev and Test Environment
+## Visual Studio IDE Needed
+Please use VisualStudio and not VisualStudioCode as we have not tested how our software runs on that IDE.
 
 ## NuGet Installed
 - Check that you have the neccessary nugets installed
