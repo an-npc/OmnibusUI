@@ -17,7 +17,7 @@
 
 # How to Run Dev and Test Environment
 ## Visual Studio IDE Needed
-Please use VisualStudio and not VisualStudioCode as we have not tested how our software runs on that IDE.
+Please use Visual Studio and not VSCode as we have not tested how our software runs on that IDE.
 
 ## NuGet Installed
 - Check that you have the neccessary nugets installed
