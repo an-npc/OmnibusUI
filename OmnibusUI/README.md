@@ -4,7 +4,7 @@
 - Test Queries: Christian Frazier
 - Enterprise Description: Conner
 - Relation Diagram: Abdul
-- ER Diagram: unknown
+- ER Diagram: Nile
 
 # About Our Software
 - The project is named Omnibus –meaning a collection of paperbacks. This project was created with ASP.NET C# and simulates an online library repository, which keeps track of the library’s books, the authors, patrons, and distributed library cards. Melanie looked into library databases to see if we could use real data. Unfortunately, no real data could be found, so we synthesized it via Mockaroo. The schema for each entity was the following: 
